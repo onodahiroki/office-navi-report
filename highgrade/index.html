@@ -6,76 +6,84 @@
 <title>ハイグレードオフィスビル 比較ダッシュボード｜オフィスナビ</title>
 <style>
 :root {
-  --bg-main: #0f172a;
-  --bg-card: #1e293b;
-  --bg-card2: rgba(30,41,59,0.85);
-  --accent: #ec4899;
-  --accent2: #ff8db1;
+  --bg-main: #f1f5f9;
+  --bg-card: #ffffff;
+  --bg-card2: #ffffff;
+  --accent: #db2777;
+  --accent2: #e879a0;
   --navy: #1e3a8a;
-  --blue: #3b82f6;
-  --text: #e2e8f0;
-  --text-muted: #94a3b8;
-  --border: rgba(255,255,255,0.1);
-  --border-accent: rgba(236,72,153,0.3);
+  --blue: #2563eb;
+  --text: #1e293b;
+  --text-muted: #64748b;
+  --border: rgba(0,0,0,0.08);
+  --border-accent: rgba(219,39,119,0.25);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   font-family: 'Hiragino Sans','Meiryo',sans-serif;
-  background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+  background: #dde3ec;
   color: var(--text); min-height: 100vh;
 }
 
 /* HEADER */
 header {
-  background: rgba(15,23,42,0.95);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
+  background: linear-gradient(135deg, #2563eb 0%, #60a5fa 100%);
+  border-bottom: 3px solid #db2777;
   padding: 14px 24px;
   display: flex; align-items: center; justify-content: space-between;
   position: sticky; top: 0; z-index: 50;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
 }
-.header-title { font-size: 1.1rem; font-weight: 700; }
-.header-title span { 
-  background: linear-gradient(135deg, var(--accent2), var(--accent));
+.header-title { font-size: 1.1rem; font-weight: 700; color: #fff; }
+.header-title span {
+  background: linear-gradient(135deg, #fda4c8, #f472b6);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 .header-badge {
-  background: rgba(236,72,153,0.15);
-  border: 1px solid var(--border-accent);
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.4);
   border-radius: 20px; padding: 4px 14px;
-  font-size: 0.78rem; font-weight: 600; color: var(--accent2);
+  font-size: 0.78rem; font-weight: 600; color: #fff;
 }
 
 /* CONTROLS */
 .controls {
-  background: rgba(30,41,59,0.7);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
-  padding: 12px 24px;
-  display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+  background: #ffffff;
+  border-bottom: 2px solid #e2e8f0;
+  padding: 14px 24px;
+  display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
+  position: sticky; top: 57px; z-index: 49;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
 }
-.control-group { display: flex; align-items: center; gap: 6px; }
-.control-group label { font-size: 0.78rem; color: var(--accent2); white-space: nowrap; font-weight: 600; }
+.control-group { display: flex; align-items: center; gap: 8px; }
+.control-group label { font-size: 0.9rem; color: #1e3a8a; white-space: nowrap; font-weight: 700; letter-spacing: 0.01em; }
 .controls input[type=text] {
-  padding: 7px 12px; border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 8px; font-size: 0.85rem;
-  background: rgba(15,23,42,0.7); color: var(--text); width: 200px;
+  padding: 8px 12px; border: 1.5px solid #cbd5e1;
+  border-radius: 8px; font-size: 0.9rem;
+  background: #f8fafc; color: var(--text); width: 200px;
+  transition: border-color .15s, box-shadow .15s;
 }
-.controls input[type=text]:focus { outline: none; border-color: var(--accent); }
+.controls input[type=text]::placeholder { color: #94a3b8; }
+.controls input[type=text]:focus { outline: none; border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,0.12); }
 .controls select {
-  padding: 7px 10px; border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 8px; font-size: 0.85rem;
-  background: rgba(15,23,42,0.7); color: var(--text);
+  padding: 8px 12px; border: 1.5px solid #cbd5e1;
+  border-radius: 8px; font-size: 0.9rem;
+  background: #f8fafc; color: var(--text);
+  cursor: pointer; transition: border-color .15s;
 }
-.btn { padding: 7px 16px; border-radius: 8px; border: none; cursor: pointer; font-size: 0.82rem; font-weight: 600; }
-.btn-reset { background: rgba(255,255,255,0.08); color: var(--text-muted); }
-.btn-reset:hover { background: rgba(255,255,255,0.15); }
+.controls select:focus { outline: none; border-color: #2563eb; }
+.btn { padding: 8px 18px; border-radius: 8px; border: none; cursor: pointer; font-size: 0.88rem; font-weight: 700; transition: opacity .15s; }
+.btn-reset { background: #f1f5f9; color: #475569; border: 1.5px solid #cbd5e1; }
+.btn-reset:hover { background: #e2e8f0; }
 .btn-compare {
-  background: linear-gradient(135deg, var(--accent2), var(--accent));
+  background: linear-gradient(135deg, #e879a0, #db2777);
   color: #fff; margin-left: auto;
+  box-shadow: 0 2px 8px rgba(219,39,119,0.25);
 }
-.btn-compare:disabled { background: rgba(255,255,255,0.1); color: var(--text-muted); cursor: default; }
-.result-count { font-size: 0.82rem; color: var(--text-muted); }
+.controls-break { flex-basis: 100%; height: 0; }
+.btn-compare:hover { opacity: 0.9; }
+.btn-compare:disabled { background: #e2e8f0; color: #94a3b8; cursor: default; box-shadow: none; }
+.result-count { font-size: 0.88rem; color: #475569; font-weight: 600; }
 
 /* GRID */
 .grid-wrap { max-width: 1280px; margin: 0 auto; padding: 24px; }
@@ -83,53 +91,49 @@ header {
 
 /* CARD */
 .card {
-  background: var(--bg-card2);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--border);
-  border-radius: 16px; overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px; overflow: hidden;
   transition: transform .2s, box-shadow .2s, border-color .2s;
   display: flex; flex-direction: column;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
 }
 .card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(236,72,153,0.15);
-  border-color: var(--border-accent);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.10);
+  border-color: #cbd5e1;
 }
 .card.selected {
   border-color: var(--accent);
-  box-shadow: 0 0 0 2px rgba(236,72,153,0.25);
+  box-shadow: 0 0 0 2px rgba(219,39,119,0.2);
 }
 
 /* CARD HEADER */
 .card-header {
-  padding: 14px 16px 10px;
-  background: rgba(15,23,42,0.4);
-  border-bottom: 1px solid var(--border);
+  padding: 13px 15px 10px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
   display: flex; align-items: flex-start; gap: 10px;
 }
 .card-header-info { flex: 1; }
 .area-badges { display: flex; gap: 6px; margin-bottom: 6px; }
-.badge-area1 {
-  background: rgba(236,72,153,0.2); color: var(--accent2);
-  border: 1px solid rgba(236,72,153,0.3);
-  padding: 2px 9px; border-radius: 10px; font-size: 0.7rem; font-weight: 700;
-}
+.badge-area1 { display: none; }
 .badge-area2 {
-  background: rgba(59,130,246,0.15); color: #93c5fd;
-  border: 1px solid rgba(59,130,246,0.25);
+  background: rgba(37,99,235,0.1); color: #1d4ed8;
+  border: 1px solid rgba(37,99,235,0.2);
   padding: 2px 9px; border-radius: 10px; font-size: 0.7rem; font-weight: 700;
 }
-.card-name { font-size: 0.97rem; font-weight: 700; color: var(--text); line-height: 1.3; }
-.card-name-en { font-size: 0.68rem; color: var(--text-muted); margin-top: 2px; }
+.card-name { font-size: 0.97rem; font-weight: 700; color: #1e293b; line-height: 1.3; }
+.card-name-en { font-size: 0.68rem; color: #94a3b8; margin-top: 2px; }
 .checkbox-compare { width: 17px; height: 17px; cursor: pointer; accent-color: var(--accent); margin-top: 4px; flex-shrink: 0; }
 
 /* CARD BODY */
-.card-body { padding: 14px 16px; flex: 1; }
-.card-desc { font-size: 0.82rem; color: #cbd5e1; line-height: 1.55; margin-bottom: 10px; }
+.card-body { padding: 13px 15px; flex: 1; }
+.card-desc { font-size: 0.82rem; color: #475569; line-height: 1.55; margin-bottom: 10px; }
 
 .station-row {
   display: flex; align-items: flex-start; gap: 5px;
-  font-size: 0.78rem; color: #94a3b8; margin-bottom: 10px;
+  font-size: 0.78rem; color: #64748b; margin-bottom: 10px;
 }
 
 .spec-grid {
@@ -137,105 +141,136 @@ header {
   gap: 6px; margin-bottom: 10px;
 }
 .spec-item {
-  background: rgba(15,23,42,0.5);
-  border: 1px solid rgba(255,255,255,0.07);
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
   border-radius: 8px; padding: 7px 10px;
 }
-.spec-label { font-size: 0.65rem; color: var(--accent2); margin-bottom: 3px; font-weight: 600; }
-.spec-value { font-size: 0.84rem; font-weight: 700; color: var(--text); }
+.spec-label { font-size: 0.65rem; color: #1d4ed8; margin-bottom: 3px; font-weight: 700; }
+.spec-value { font-size: 0.84rem; font-weight: 700; color: #1e293b; }
 
 .struct-badge {
   display: inline-block;
   padding: 2px 8px; border-radius: 8px; font-size: 0.72rem; font-weight: 700;
 }
-.struct-免震 { background: rgba(34,197,94,0.15); color: #86efac; border: 1px solid rgba(34,197,94,0.2); }
-.struct-制振 { background: rgba(59,130,246,0.15); color: #93c5fd; border: 1px solid rgba(59,130,246,0.2); }
-.struct-新耐震 { background: rgba(234,179,8,0.15); color: #fde047; border: 1px solid rgba(234,179,8,0.2); }
+.struct-免震 { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+.struct-制振 { background: #dbeafe; color: #1d4ed8; border: 1px solid #93c5fd; }
+.struct-新耐震 { background: #fef9c3; color: #a16207; border: 1px solid #fde047; }
 
 .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
 .tag {
-  background: rgba(255,255,255,0.07);
-  color: #94a3b8;
-  border: 1px solid rgba(255,255,255,0.1);
+  background: #f1f5f9;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
   padding: 2px 9px; border-radius: 20px; font-size: 0.7rem;
 }
 
 /* NAVI SCORE */
 .score-section { margin-bottom: 4px; }
-.score-label { font-size: 0.7rem; color: var(--accent2); margin-bottom: 6px; font-weight: 600; }
+.score-label { font-size: 0.7rem; color: #be185d; margin-bottom: 6px; font-weight: 700; }
 .scores { display: grid; grid-template-columns: repeat(4,1fr); gap: 4px; }
 .score-item { text-align: center; }
-.score-name { font-size: 0.6rem; color: var(--text-muted); margin-bottom: 3px; }
+.score-name { font-size: 0.6rem; color: #64748b; margin-bottom: 3px; }
 .score-dots { display: flex; justify-content: center; gap: 2px; }
 .dot { width: 7px; height: 7px; border-radius: 50%; }
-.dot.filled { background: var(--accent); }
-.dot.empty { background: rgba(255,255,255,0.12); }
-.score-num { font-size: 0.74rem; font-weight: 700; color: var(--text); margin-top: 2px; }
+.dot.filled { background: #db2777; }
+.dot.empty { background: #e2e8f0; }
+.score-num { font-size: 0.74rem; font-weight: 700; color: #1e293b; margin-top: 2px; }
 
 /* CARD FOOTER */
 .card-footer {
-  padding: 10px 16px;
-  border-top: 1px solid var(--border);
+  padding: 10px 15px;
+  border-top: 1px solid #e2e8f0;
   display: flex; align-items: center; gap: 8px;
+  background: #fafcff;
 }
 .publish-date {
-  font-size: 0.72rem; color: var(--text-muted);
+  font-size: 0.72rem; color: #94a3b8;
   display: flex; align-items: center; gap: 4px;
 }
 .link-article {
   margin-left: auto;
-  background: linear-gradient(135deg, var(--accent2), var(--accent));
+  background: linear-gradient(135deg, #e879a0, #db2777);
   color: #fff;
   padding: 7px 16px; border-radius: 8px;
   font-size: 0.78rem; font-weight: 700;
   text-decoration: none; white-space: nowrap;
   transition: opacity .15s;
+  box-shadow: 0 2px 6px rgba(219,39,119,0.2);
 }
 .link-article:hover { opacity: 0.85; }
 
 /* COMPARE MODAL */
 .modal-overlay {
   display: none; position: fixed; inset: 0;
-  background: rgba(0,0,0,0.7); backdrop-filter: blur(4px);
+  background: rgba(0,0,0,0.55); backdrop-filter: blur(4px);
   z-index: 100; overflow-y: auto; padding: 20px;
 }
 .modal-overlay.active { display: flex; align-items: flex-start; justify-content: center; }
 .modal {
-  background: #1e293b;
-  border: 1px solid var(--border);
+  background: #fff;
+  border: 1px solid #e2e8f0;
   border-radius: 16px;
   max-width: 1200px; width: 100%; margin: auto;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.18);
 }
 .modal-header {
-  background: rgba(15,23,42,0.8);
+  background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
   color: #fff;
   padding: 16px 24px;
   border-radius: 16px 16px 0 0;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 2px solid #db2777;
   display: flex; align-items: center; justify-content: space-between;
 }
 .modal-header h2 { font-size: 1rem; }
 .modal-close {
-  background: rgba(255,255,255,0.1); border: none;
+  background: rgba(255,255,255,0.15); border: none;
   color: #fff; width: 28px; height: 28px; border-radius: 50%;
   cursor: pointer; font-size: 1rem;
   display: flex; align-items: center; justify-content: center;
 }
-.modal-close:hover { background: rgba(236,72,153,0.3); }
+.modal-close:hover { background: rgba(219,39,119,0.4); }
 .modal-body { overflow-x: auto; padding: 20px; }
 .compare-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
 .compare-table th {
-  background: rgba(15,23,42,0.8); color: var(--text);
+  background: #1e3a8a; color: #fff;
   padding: 10px 12px; text-align: center; white-space: nowrap;
-  border-bottom: 2px solid var(--border-accent);
+  border-bottom: 2px solid #db2777;
 }
 .compare-table td {
-  padding: 8px 12px; border-bottom: 1px solid var(--border);
-  vertical-align: top; color: var(--text);
+  padding: 8px 12px; border-bottom: 1px solid #e2e8f0;
+  vertical-align: top; color: #1e293b;
 }
-.compare-table tr:nth-child(even) td { background: rgba(15,23,42,0.3); }
-.compare-table td:first-child { font-weight: 600; color: var(--text-muted); white-space: nowrap; width: 100px; }
+.compare-table tr:nth-child(even) td { background: #f8fafc; }
+.compare-table td:first-child { font-weight: 600; color: #64748b; white-space: nowrap; width: 100px; }
+
+/* AREA COLOR — 東京 vs 大阪 */
+.card-tokyo {
+  border-left: 4px solid #2563eb;
+  background: linear-gradient(160deg, #ffffff 0%, #eff6ff 100%);
+}
+.card-tokyo:hover { border-color: #1d4ed8; box-shadow: 0 10px 28px rgba(37,99,235,0.12); }
+.card-tokyo.selected { border-color: #1d4ed8; box-shadow: 0 0 0 2px rgba(37,99,235,0.2); }
+.card-tokyo .card-header { background: #eff6ff; border-bottom-color: #dbeafe; }
+.card-area-label-tokyo {
+  display: inline-block;
+  background: #dbeafe; color: #1d4ed8;
+  border: 1px solid #93c5fd;
+  border-radius: 6px; padding: 2px 8px; font-size: 0.68rem; font-weight: 700;
+}
+.card-osaka {
+  border-left: 4px solid #d97706;
+  background: linear-gradient(160deg, #ffffff 0%, #fffbeb 100%);
+}
+.card-osaka:hover { border-color: #b45309; box-shadow: 0 10px 28px rgba(217,119,6,0.12); }
+.card-osaka.selected { border-color: #b45309; box-shadow: 0 0 0 2px rgba(217,119,6,0.2); }
+.card-osaka .card-header { background: #fffbeb; border-bottom-color: #fef3c7; }
+.card-area-label-osaka {
+  display: inline-block;
+  background: #fef3c7; color: #b45309;
+  border: 1px solid #fde68a;
+  border-radius: 6px; padding: 2px 8px; font-size: 0.68rem; font-weight: 700;
+}
+.card { position: relative; }
 
 /* EMPTY */
 .empty-state { text-align: center; padding: 60px 20px; color: var(--text-muted); }
@@ -247,7 +282,6 @@ header {
 <header>
   <div>
     <div class="header-title">🏢 ハイグレードオフィスビル <span>比較ダッシュボード</span>｜オフィスナビ</div>
-    <div style="font-size:.75rem;color:var(--text-muted);margin-top:3px;">公開済み記事 10棟を統合した動的比較ビュー</div>
   </div>
   <div class="header-badge" id="totalBadge">10棟掲載中</div>
 </header>
@@ -296,8 +330,9 @@ header {
   </div>
   <span class="result-count" id="resultCount"></span>
   <button class="btn btn-compare" id="compareBtn" onclick="openCompare()" disabled>
-    ✓ 選択した棟を比較（<span id="selectedCount">0</span>）
+    ✓ 選択したビルを比較（<span id="selectedCount">0</span>）
   </button>
+  <div class="controls-break"></div>
   <button class="btn btn-reset" onclick="resetFilters()">条件リセット</button>
 </div>
 
@@ -349,10 +384,17 @@ function parseYear(b) {
 
 function makeCard(b) {
   const isSelected = selected.has(b.id);
-  return `<div class="card ${isSelected?'selected':''}" id="card-${b.id}">
+  const areaClass = b.area1 === '東京' ? 'card-tokyo' : b.area1 === '大阪' ? 'card-osaka' : '';
+  const areaLabel = b.area1 === '東京'
+    ? `<span class="card-area-label-tokyo">🗼 東京</span>`
+    : b.area1 === '大阪'
+    ? `<span class="card-area-label-osaka">🏯 大阪</span>`
+    : '';
+  return `<div class="card ${areaClass} ${isSelected?'selected':''}" id="card-${b.id}">
     <div class="card-header">
       <div class="card-header-info">
         <div class="area-badges">
+          ${areaLabel}
           <span class="badge-area1">${b.area1}</span>
           <span class="badge-area2">${b.area2}</span>
         </div>
